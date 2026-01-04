@@ -79,7 +79,7 @@ BufferManagerShmemInit(void)
 						&foundDescs);
 
 	/* Align buffer pool on IO page size boundary. */
-	BufferBlocks = (char *)
+	BufferBlocks = (char *) // found buffer blocks pull align
 		TYPEALIGN(PG_IO_ALIGN_SIZE,
 				  ShmemInitStruct("Buffer Blocks",
 								  NBuffers * (Size) BLCKSZ + PG_IO_ALIGN_SIZE,
