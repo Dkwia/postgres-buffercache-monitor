@@ -262,31 +262,31 @@ BufMappingPartitionLockByIndex(uint32 index)
  * a separate array.  They could be moved in here and still fit within that
  * limit on common systems, but for now that is not done.
  */
-typedef struct BufferDesc //Metadata (buffer descriptors)
+typedef struct BufferDesc /* Metadata (buffer descriptors) */
 {
 	/*
 	 * ID of page contained in buffer. The buffer header spinlock needs to be
 	 * held to modify this field.
 	 */
-	BufferTag	tag; // Contains relation ID, fork type and block number
+	BufferTag	tag; /* Contains relation ID, fork type and block number */
 
 	/*
 	 * Buffer's index number (from 0). The field never changes after
 	 * initialization, so does not need locking.
 	 */
-	int			buf_id; // Buffer id
+	int			buf_id; /* Buffer id */
 
 	/*
 	 * State of the buffer, containing flags, refcount and usagecount. See
 	 * BUF_* and BM_* defines at the top of this file.
 	 */
-	pg_atomic_uint32 state; // Pin count and usage count
+	pg_atomic_uint32 state; /* Pin count and usage count */
 
 	/*
 	 * Backend of pin-count waiter. The buffer header spinlock needs to be
 	 * held to modify this field.
 	 */
-	int			wait_backend_pgprocno; // Waiting then buffer is pinned
+	int			wait_backend_pgprocno; /* Waiting then buffer is pinned */
 
 	PgAioWaitRef io_wref;		/* set iff AIO is in progress */
 	LWLock		content_lock;	/* to lock access to buffer contents */
