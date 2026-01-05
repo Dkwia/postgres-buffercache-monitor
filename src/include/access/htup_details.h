@@ -150,7 +150,7 @@ typedef struct DatumTupleFields
 	 */
 } DatumTupleFields;
 
-struct HeapTupleHeaderData
+struct HeapTupleHeaderData /* Contains bit rows for MVCC */
 {
 	union
 	{
