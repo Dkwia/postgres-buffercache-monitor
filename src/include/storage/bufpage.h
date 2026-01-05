@@ -155,7 +155,7 @@ PageXLogRecPtrGet(PageXLogRecPtr val)
  * are 15 bits.
  */
 
-typedef struct PageHeaderData
+typedef struct PageHeaderData /* One page data */
 {
 	/* XXX LSN is member of *any* block, not only page-organized ones */
 	PageXLogRecPtr pd_lsn;		/* LSN: next byte after last byte of xlog
