@@ -22,7 +22,7 @@ PG_MODULE_MAGIC;
 
 #include <unistd.h>
 
-static int buffer_dump_interval = 5; /* GUC parameter N seconds */
+static int buffer_dump_interval = 300; /* GUC parameter N seconds */
 
 static void dump_buffer_states_to_file(void);
 
@@ -89,7 +89,7 @@ dump_buffer_states_to_file(void)
 	TimestampTz now = GetCurrentTimestamp();
 	const char *ts = timestamptz_to_str(now);
 
-	FILE *fp = fopen("/tmp/buffer_states.log", "a");
+	FILE *fp = fopen("/tmp/buffer_states.log", "w");
 	if (!fp)
     	return;
 
