@@ -1,0 +1,3 @@
+comment = 'Dump PostgreSQL buffer cache states in file every N seconds'
+default_version = '1.0'
+relocatable = false
