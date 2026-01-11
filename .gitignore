@@ -25,6 +25,7 @@ objfiles.txt
 lcov*.info
 coverage/
 coverage-html-stamp
+logfile
 *.vcproj
 *.vcxproj
 win32ver.rc
